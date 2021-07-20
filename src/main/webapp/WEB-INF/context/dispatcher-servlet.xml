@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
+      http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- FIXME    Change name of the package to your base-package -->
+    <context:component-scan
+            base-package="vn.molu.controller, vn.molu.api"/>
+    <mvc:annotation-driven/>
+    <context:annotation-config/>
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--        UrlBasedViewResolver-->
+        <!--        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <mvc:resources mapping="/template/**" location="/template/"/>
+
+    <mvc:interceptors>
+        <bean class="vn.molu.interceptor.MenuHandleInterceptor"></bean>
+    </mvc:interceptors>
+
+
+    <!--hibernate làm thêm-->
+<!--    <bean id = "dataSource"-->
+<!--          class = "org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+<!--        <property name = "driverClassName" value = "com.mysql.jdbc.Driver"/>-->
+<!--        <property name = "url" value = "jdbc:mysql://localhost:3306/springmvc"/>-->
+<!--        <property name = "username" value = "root"/>-->
+<!--        <property name = "password" value = "123456789"/>-->
+<!--    </bean>-->
+<!---->
+<!--    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">-->
+<!--        <property name="dataSource" ref="dataSource" />-->
+<!--        <property name = "annotatedClasses">-->
+<!--            <list>-->
+<!--                <value>vn.molu.entity.Products</value>-->
+<!--                <value>vn.molu.entity.Order</value>-->
+<!--                <value>vn.molu.entity.DetailedOrder</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--        <property name="hibernateProperties">-->
+<!--            <props>-->
+<!--                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>-->
+<!--                <prop key="hibernate.show_sql">true</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
+</beans>

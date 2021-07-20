@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
+             xmlns="http://java.sun.com/xml/ns/persistence"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="persistence-data">
+
+        <class>vn.molu.entity.NewEntity</class>
+        <class>vn.molu.entity.UserEntity</class>
+        <class>vn.molu.entity.RoleEntity</class>
+        <class>vn.molu.entity.CategoryEntity</class>
+        <class>vn.molu.entity.Products</class>
+        <class>vn.molu.entity.Order</class>
+        <class>vn.molu.entity.DetailedOrder</class>
+    </persistence-unit>
+</persistence>
+
